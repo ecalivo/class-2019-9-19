@@ -1,0 +1,23 @@
+---
+title: "Enrollment at Harvard"
+author: "Emmanuel Calivo"
+date: "9/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(knitr)
+
+enrollment <- read_xlsx("raw-data/class_enrollment_summary_by_term_9.19.19.xlsx", skip = 3)
+```
+
+``` {r echo = FALSE}
+enrollment %>%
+  filter(Course Department = "English") %>%
+  arrange(desc(enrollment))
+```
+
+
